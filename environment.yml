@@ -1,0 +1,22 @@
+name: ipis-thesis-pyrolysis-epr
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pandas
+  - numpy
+  - scipy
+  - scikit-learn
+  - matplotlib
+  - jupyterlab
+  - pyarrow
+  - pip
+  - pip:
+      - lightgbm
+      - gpytorch
+      - torch
+      - pyomo
+      - highspy        # open MILP/LP solver for Pyomo
+      - SALib
+      - CoolProp
+      - plotly

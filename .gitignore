@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.env
+.venv/
+env/
+venv/
+
+# Data (keep provenance READMEs, ignore payloads)
+/data/raw/
+/data/interim/
+/data/**/*.csv
+/data/**/*.parquet
+/data/**/*.xlsx
+!data/README.md
+
+# Model / result artifacts
+/results/**/*.pkl
+/results/**/*.joblib
+/results/**/*.pt
+
+# Simulation exports
+*.dwxmz
+*.bkp
+*.apw
+
+# OS / misc
+.DS_Store
+*.log
