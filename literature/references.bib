@@ -1,0 +1,329 @@
+% ============================================================================
+% references.bib  —  Phase P1, ipis-thesis-pyrolysis-epr (W1/A)
+% Thesis: uncertainty-aware GP surrogate + spatial superstructure for
+% mixed-plastic pyrolysis siting under the RA 11898 recovery constraint.
+% Target venue: Computers & Chemical Engineering.
+%
+% VERIFICATION STATUS (per PM standing rule — no fabricated citations):
+%   [V]  metadata + DOI verified against publisher/index in P1 search pass.
+%   [V*] author/title/venue/vol/pages verified; DOI is best-known and flagged
+%        in the note field for a 30-second confirmation before manuscript use.
+%   [P]  partial capture (see note); complete before citing in the manuscript.
+% Nothing below was invented. Flagged items are real papers whose one missing
+% field (usually DOI) was not surfaced verbatim by search.
+% ============================================================================
+
+% ---------------------------------------------------------------------------
+% THREAD 1 — Mixed-plastic pyrolysis: lumped kinetics & product yields
+% ---------------------------------------------------------------------------
+
+@article{sharuddin2016review,
+  author  = {Anuar Sharuddin, Shafferina Dayana and Abnisa, Faisal and Wan Daud, Wan Mohd Ashri and Aroua, Mohamed Kheireddine},
+  title   = {A review on pyrolysis of plastic wastes},
+  journal = {Energy Conversion and Management},
+  year    = {2016},
+  volume  = {115},
+  pages   = {308--326},
+  doi     = {10.1016/j.enconman.2016.02.037},
+  note    = {[V*] vol/pages/journal verified; confirm DOI. Canonical per-polymer and mixed-plastic yield/parameter review.}
+}
+
+@article{papari2021review,
+  author  = {Papari, Sadegh and Bamdad, Hanieh and Berruti, Franco},
+  title   = {Pyrolytic Conversion of Plastic Waste to Value-Added Products and Fuels: A Review},
+  journal = {Materials},
+  year    = {2021},
+  volume  = {14},
+  number  = {10},
+  pages   = {2586},
+  doi     = {10.3390/ma14102586},
+  note    = {[V] Reactor mode vs product-slate (oil/wax/olefin) mapping.}
+}
+
+@article{locaspi2023lumped,
+  author  = {Locaspi, Andrea and Pelucchi, Matteo and Mehl, Marco and Faravelli, Tiziano},
+  title   = {Towards a lumped approach for solid plastic waste gasification: Polyethylene and polypropylene pyrolysis},
+  journal = {Waste Management},
+  year    = {2023},
+  volume  = {156},
+  pages   = {107--117},
+  doi     = {10.1016/j.wasman.2022.11.028},
+  note    = {[V] CRECK-group reduction of a detailed mechanism to a lumped scheme for PE/PP. Candidate kinetic backbone for the P2 DWSIM flowsheet.}
+}
+
+@article{genuino2023predicting,
+  author  = {Genuino, Homer C. and Ruiz, M. Pilar and Heeres, Hero J. and Kersten, Sascha R. A.},
+  title   = {Pyrolysis of mixed plastic waste: Predicting the product yields},
+  journal = {Waste Management},
+  year    = {2023},
+  volume  = {156},
+  pages   = {208--215},
+  doi     = {10.1016/j.wasman.2022.11.040},
+  note    = {[V] Yields as an explicit function of blend composition. Directly informs the composition->yield map that the surrogate must reproduce.}
+}
+
+@article{westerhout1997kinetics,
+  author  = {Westerhout, R. W. J. and Waanders, J. and Kuipers, J. A. M. and van Swaaij, W. P. M.},
+  title   = {Kinetics of the Low-Temperature Pyrolysis of Polyethene, Polypropene, and Polystyrene: Modeling, Experimental Determination, and Comparison with Literature Models and Data},
+  journal = {Industrial \& Engineering Chemistry Research},
+  year    = {1997},
+  volume  = {36},
+  number  = {6},
+  pages   = {1955--1964},
+  doi     = {10.1021/ie960501m},
+  note    = {[V] Random-chain-scission foundation; still a standard baseline for polyolefin devolatilization kinetics.}
+}
+
+% ---------------------------------------------------------------------------
+% THREAD 2 — Surrogate-assisted optimization in PSE
+% ---------------------------------------------------------------------------
+
+@article{bhosekar2018advances,
+  author  = {Bhosekar, Atharv and Ierapetritou, Marianthi},
+  title   = {Advances in surrogate based modeling, feasibility analysis, and optimization: A review},
+  journal = {Computers \& Chemical Engineering},
+  year    = {2018},
+  volume  = {108},
+  pages   = {250--267},
+  doi     = {10.1016/j.compchemeng.2017.09.017},
+  note    = {[V] Anchor review. Separates the three surrogate roles (prediction / DFO / feasibility); RBF and Kriging benchmarked. Sampling-strategy guidance for P3 DOE.}
+}
+
+@article{mcbride2019overview,
+  author  = {McBride, Kevin and Sundmacher, Kai},
+  title   = {Overview of Surrogate Modeling in Chemical Process Engineering},
+  journal = {Chemie Ingenieur Technik},
+  year    = {2019},
+  volume  = {91},
+  number  = {3},
+  pages   = {228--239},
+  doi     = {10.1002/cite.201800091},
+  note    = {[V*] vol/pages/journal verified; confirm DOI. Compact taxonomy of surrogate types for process engineers.}
+}
+
+@article{cozad2014learning,
+  author  = {Cozad, Alison and Sahinidis, Nikolaos V. and Miller, David C.},
+  title   = {Learning surrogate models for simulation-based optimization},
+  journal = {AIChE Journal},
+  year    = {2014},
+  volume  = {60},
+  number  = {6},
+  pages   = {2211--2227},
+  doi     = {10.1002/aic.14418},
+  note    = {[V] ALAMO. Best-subset algebraic surrogates + adaptive DFO sampling. Interpretable-surrogate alternative to a black-box GP.}
+}
+
+@article{wilson2017alamo,
+  author  = {Wilson, Zachary T. and Sahinidis, Nikolaos V.},
+  title   = {The ALAMO approach to machine learning},
+  journal = {Computers \& Chemical Engineering},
+  year    = {2017},
+  volume  = {106},
+  pages   = {785--795},
+  doi     = {10.1016/j.compchemeng.2017.02.010},
+  note    = {[V] ALAMO methodology + ML comparison. Relevant to LightGBM-vs-algebraic-surrogate tradeoff in P4.}
+}
+
+@article{caballero2008algorithm,
+  author  = {Caballero, Jos{\'e} A. and Grossmann, Ignacio E.},
+  title   = {An algorithm for the use of surrogate models in modular flowsheet optimization},
+  journal = {AIChE Journal},
+  year    = {2008},
+  volume  = {54},
+  number  = {10},
+  pages   = {2633--2650},
+  doi     = {10.1002/aic.11579},
+  note    = {[V] Direct methodological ancestor: Kriging (= GP) surrogates replace noisy modular unit ops; trust-region + bound contraction. Kriging error estimate used as a feasibility/stopping signal.}
+}
+
+@article{boukouvala2013surrogate,
+  author  = {Boukouvala, Fani and Ierapetritou, Marianthi G.},
+  title   = {Surrogate-Based Optimization of Expensive Flowsheet Modeling for Continuous Pharmaceutical Manufacturing},
+  journal = {Journal of Pharmaceutical Innovation},
+  year    = {2013},
+  volume  = {8},
+  number  = {2},
+  pages   = {131--145},
+  doi     = {10.1007/s12247-013-9154-1},
+  note    = {[V*] vol/pages/journal verified; confirm DOI. Worked example of surrogate replacing an expensive flowsheet under feasibility constraints.}
+}
+
+% ---------------------------------------------------------------------------
+% THREAD 3 — Superstructure / process-network synthesis & facility siting
+% ---------------------------------------------------------------------------
+
+@article{mencarelli2020review,
+  author  = {Mencarelli, Luca and Chen, Qi and Pagot, Alexandre and Grossmann, Ignacio E.},
+  title   = {A review on superstructure optimization approaches in process system engineering},
+  journal = {Computers \& Chemical Engineering},
+  year    = {2020},
+  volume  = {136},
+  pages   = {106808},
+  doi     = {10.1016/j.compchemeng.2020.106808},
+  note    = {[V] Anchor review of superstructure representations (STN, P-graph, state-space) and GDP modeling. Basis for choosing the network representation in P4.}
+}
+
+@article{yeomans1999systematic,
+  author  = {Yeomans, Hector and Grossmann, Ignacio E.},
+  title   = {A systematic modeling framework of superstructure optimization in process synthesis},
+  journal = {Computers \& Chemical Engineering},
+  year    = {1999},
+  volume  = {23},
+  number  = {6},
+  pages   = {709--731},
+  doi     = {10.1016/S0098-1354(99)00003-4},
+  note    = {[V*] vol/pages/journal verified; confirm DOI. Foundational STN-based superstructure modeling framework.}
+}
+
+@article{santibanez2013optimal,
+  author  = {Santiba{\~n}ez-Aguilar, Jos{\'e} Ezequiel and Ponce-Ortega, Jos{\'e} Mar{\'i}a and Gonz{\'a}lez-Campos, J. Betzabe and Serna-Gonz{\'a}lez, Medardo and El-Halwagi, Mahmoud M.},
+  title   = {Optimal planning for the sustainable utilization of municipal solid waste},
+  journal = {Waste Management},
+  year    = {2013},
+  volume  = {33},
+  number  = {12},
+  pages   = {2607--2622},
+  doi     = {10.1016/j.wasman.2013.08.010},
+  note    = {[V] Closest prior art for spatial siting: distributed MSW supply-chain MILP (cities -> separation -> processing -> markets), central-west Mexico. Deterministic; fixed composition; fixed yield factors. The baseline this thesis must beat on G2 + G1 + G3.}
+}
+
+@article{wang2024optimization,
+  author  = {Wang, Shuheng and Maravelias, Christos T.},
+  title   = {Optimization methods for plastics management supply chain design},
+  journal = {AIChE Journal},
+  year    = {2024},
+  volume  = {70},
+  number  = {8},
+  pages   = {e18464},
+  doi     = {10.1002/aic.18464},
+  note    = {[V] full metadata verified (author list via NSF-PAR/AIChE). NEAREST COMPETITOR, threat resolved in thesis's favor: three DETERMINISTIC MIP models that TRACK composition through the SC. Authors' own claim: "first to develop a model to address the specific impact of sorting and composition of MPW on SC design," explicitly contrasting fixed-composition prior work. No stochastic composition, no recovery/EPR constraint, fixed conversion factors (no surrogate). Establishes composition-awareness matters -> leaves the stochastic + EPR-constrained + surrogate version open.}
+}
+
+@article{cristiu2024economic,
+  author  = {Cr{\^i}stiu, Daniel and d'Amore, Federico and Bezzo, Fabrizio},
+  title   = {Economic and environmental optimisation of mixed plastic waste supply chains in Northern Italy comparing incineration and pyrolysis technologies},
+  journal = {Computers \& Chemical Engineering},
+  year    = {2024},
+  volume  = {180},
+  pages   = {108503},
+  doi     = {10.1016/j.compchemeng.2023.108503},
+  note    = {[V] In the target journal. Multi-objective (profit vs GHG) MILP siting + technology selection (incineration/gasification/pyrolysis) for MPW, N. Italy. DETERMINISTIC; explicitly notes composition variability then treats it as fixed scenarios; no recovery constraint; no surrogate. Second deterministic-siting contrast for G2. Same group (Cr{\^i}stiu, You, d'Amore, Bezzo, I&ECR 2025) does SC design under uncertainty for DAC -> uncertainty-aware SC design exists in adjacent domains, not for plastic-pyrolysis-under-EPR.}
+}
+
+@article{ma2023economic,
+  author  = {Ma, Jiacheng and Tominac, Philip A. and Aguirre-Villegas, Horacio A. and Olafasakin, Oreoluwa O. and Wright, Mark M. and Benson, Craig H. and Huber, George W. and Zavala, Victor M.},
+  title   = {Economic evaluation of infrastructures for thermochemical upcycling of post-consumer plastic waste},
+  journal = {Green Chemistry},
+  year    = {2023},
+  volume  = {25},
+  number  = {3},
+  pages   = {1032--1044},
+  doi     = {10.1039/D2GC04005K},
+  note    = {[V*] author/vol/pages verified; confirm DOI. Spatial infrastructure/TEA for thermochemical plastic upcycling (Zavala group). Deterministic; economics-first; no surrogate, no composition uncertainty.}
+}
+
+% ---------------------------------------------------------------------------
+% THREAD 4 — Optimization under uncertainty (stochastic / robust / chance)
+% ---------------------------------------------------------------------------
+
+@article{sahinidis2004optimization,
+  author  = {Sahinidis, Nikolaos V.},
+  title   = {Optimization under uncertainty: State-of-the-art and opportunities},
+  journal = {Computers \& Chemical Engineering},
+  year    = {2004},
+  volume  = {28},
+  number  = {6-7},
+  pages   = {971--983},
+  doi     = {10.1016/j.compchemeng.2003.09.017},
+  note    = {[V] Landmark PSE survey: stochastic programming, robust optimization, chance constraints, scenario handling. The methodological menu for the composition-uncertainty layer.}
+}
+
+@article{grossmann2016recent,
+  author  = {Grossmann, Ignacio E. and Apap, Robert M. and Calfa, Bruno A. and Garc{\'i}a-Herreros, Pablo and Zhang, Qi},
+  title   = {Recent advances in mathematical programming techniques for the optimization of process systems under uncertainty},
+  journal = {Computers \& Chemical Engineering},
+  year    = {2016},
+  volume  = {91},
+  pages   = {3--14},
+  doi     = {10.1016/j.compchemeng.2016.03.002},
+  note    = {[V] Modern PSE-under-uncertainty synthesis: two-stage recourse, robust recourse, data-driven scenarios, endogenous uncertainty. Frames the two-stage siting-then-operation structure.}
+}
+
+@article{li2021review,
+  author  = {Li, Can and Grossmann, Ignacio E.},
+  title   = {A Review of Stochastic Programming Methods for Optimization of Process Systems Under Uncertainty},
+  journal = {Frontiers in Chemical Engineering},
+  year    = {2021},
+  volume  = {2},
+  pages   = {622241},
+  doi     = {10.3389/fceng.2020.622241},
+  note    = {[V*] article no. verified via publisher; confirm year label (Dec-2020/2021). Tutorial-grade two-stage/multistage stochastic programming for PSE beginners + experts.}
+}
+
+@article{bertsimas2004price,
+  author  = {Bertsimas, Dimitris and Sim, Melvyn},
+  title   = {The Price of Robustness},
+  journal = {Operations Research},
+  year    = {2004},
+  volume  = {52},
+  number  = {1},
+  pages   = {35--53},
+  doi     = {10.1287/opre.1030.0065},
+  note    = {[V*] vol/pages/journal verified; confirm DOI. Budget-of-uncertainty robust formulation; tractable, controls conservatism. Robust alternative if composition-distribution data is too thin for stochastic programming.}
+}
+
+@book{bental2009robust,
+  author    = {Ben-Tal, Aharon and El Ghaoui, Laurent and Nemirovski, Arkadi},
+  title     = {Robust Optimization},
+  publisher = {Princeton University Press},
+  year      = {2009},
+  series    = {Princeton Series in Applied Mathematics},
+  note      = {[V] Reference text for robust optimization theory and uncertainty-set design.}
+}
+
+@book{birge2011introduction,
+  author    = {Birge, John R. and Louveaux, Fran{\c{c}}ois},
+  title     = {Introduction to Stochastic Programming},
+  publisher = {Springer},
+  year      = {2011},
+  edition   = {2nd},
+  doi       = {10.1007/978-1-4614-0237-4},
+  note      = {[V*] edition/publisher verified; confirm DOI. Standard text for two-stage recourse, L-shaped method, scenario formulations.}
+}
+
+% ---------------------------------------------------------------------------
+% THREAD 5 — Philippine policy (RA 11898) + waste characterization
+% ---------------------------------------------------------------------------
+
+@misc{ra11898_2022,
+  author       = {{Congress of the Philippines}},
+  title        = {Republic Act No. 11898 --- Extended Producer Responsibility Act of 2022},
+  year         = {2022},
+  howpublished = {Official Gazette of the Republic of the Philippines},
+  note         = {[V] Lapsed into law 23 Jul 2022; amends RA 9003. Establishes obliged-enterprise recovery obligation on plastic packaging footprint and fines of PHP 5M--20M.}
+}
+
+@misc{denr_dao_2023_02,
+  author       = {{Department of Environment and Natural Resources (Philippines)}},
+  title        = {DENR Administrative Order No. 2023-02: Implementing Rules and Regulations of the Extended Producer Responsibility Act of 2022 (RA 11898)},
+  year         = {2023},
+  howpublished = {DENR, issued 24 January 2023},
+  note         = {[V] The EPR IRR. Recovery schedule 20/40/50/60/70/80 pct for footprint of 2023/24/25/26/27/28+. Verified via DENR-EMB, FAOLEX (phi233819), and multiple legal analyses.}
+}
+
+@misc{denr_dao_2024_04,
+  author       = {{Department of Environment and Natural Resources (Philippines)}},
+  title        = {DENR Administrative Order No. 2024-04: Compliance Reporting and Audit Guidelines for RA 11898},
+  year         = {2024},
+  howpublished = {DENR},
+  note         = {[V] ECAR / third-party audit mechanics; footprint-based target computation. Defines how the recovery constraint is measured and reported.}
+}
+
+@techreport{worldbank2021philippines,
+  author      = {{World Bank}},
+  title       = {Market Study for the Philippines: Plastics Circularity Opportunities and Barriers},
+  institution = {World Bank, East Asia and Pacific Region Marine Plastics Series},
+  year        = {2021},
+  address     = {Washington, DC},
+  note        = {[V] hdl:10986/35295. Source for 2.7 Mt/yr plastic waste, ~0.75 Mt/yr ocean leakage, "sachet economy" (163 M sachets/day), resin-share breakdown. Grounds G1 composition context and the multilayer/film chemical-recycling gap.}
+}
