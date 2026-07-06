@@ -21,7 +21,7 @@ Each cited work is scored against the three gaps the thesis closes **jointly**. 
 
 | # | Reference | Thread | G1 (stochastic composition) | G2 (siting under EPR constraint) | G3 (UQ-aware surrogate at network scale) |
 |---|-----------|:------:|:---:|:---:|:---:|
-| 1 | `sharuddin2016review` [V*] | 1 | ○ | ○ | ○ |
+| 1 | `sharuddin2016review` [V] | 1 | ○ | ○ | ○ |
 | 2 | `papari2021review` [V] | 1 | ○ | ○ | ○ |
 | 3 | `locaspi2023lumped` [V] | 1 | ◐ | ○ | ○ |
 | 4 | `genuino2023predicting` [V] | 1 | ◐ | ○ | ○ |
@@ -30,18 +30,18 @@ Each cited work is scored against the three gaps the thesis closes **jointly**. 
 | 7 | `caballero2008algorithm` [V] | 2 | ○ | ○ | ◐ |
 | 8 | `cozad2014learning` [V] | 2 | ○ | ○ | ◐ |
 | 9 | `wilson2017alamo` [V] | 2 | ○ | ○ | ◐ |
-| 10 | `mcbride2019overview` [V*] | 2 | ○ | ○ | ◐ |
-| 11 | `boukouvala2013surrogate` [V*] | 2 | ○ | ○ | ◐ |
+| 10 | `mcbride2019overview` [V] | 2 | ○ | ○ | ◐ |
+| 11 | `boukouvala2013surrogate` [V] | 2 | ○ | ○ | ◐ |
 | 12 | `mencarelli2020review` [V] | 3 | ○ | ◐ | ○ |
-| 13 | `yeomans1999systematic` [V*] | 3 | ○ | ◐ | ○ |
+| 13 | `yeomans1999systematic` [V] | 3 | ○ | ◐ | ○ |
 | 14 | `santibanez2013optimal` [V] | 3 | ○ | ◐ | ○ |
 | 15 | `wang2024optimization` [V] | 3 | ◐ | ◐ | ○ |
 | 16 | `cristiu2024economic` [V] | 3 | ○ | ◐ | ○ |
-| 17 | `ma2023economic` [V*] | 3 | ○ | ◐ | ○ |
+| 17 | `ma2023economic` [V] | 3 | ○ | ◐ | ○ |
 | 18 | `sahinidis2004optimization` [V] | 4 | ◐ | ○ | ○ |
 | 19 | `grossmann2016recent` [V] | 4 | ◐ | ○ | ○ |
-| 20 | `li2021review` [V*] | 4 | ◐ | ○ | ○ |
-| 21 | `bertsimas2004price` [V*] | 4 | ◐ | ○ | ○ |
+| 20 | `li2021review` [V] | 4 | ◐ | ○ | ○ |
+| 21 | `bertsimas2004price` [V] | 4 | ◐ | ○ | ○ |
 | 22 | `bental2009robust` [V] | 4 | ◐ | ○ | ○ |
 | 23 | `birge2011introduction` [V*] | 4 | ◐ | ○ | ○ |
 | 24 | `ra11898_2022` [V] | 5 | ○ | def | ○ |

@@ -1,0 +1,9 @@
+# Generated artifacts (reproducible from src/ — do not commit)
+yield_table.csv
+yield_table_ILLUSTRATIVE.csv
+src/yield_table*.csv
+**/__pycache__/
+*.pyc
+
+# DWSIM autosave/backup
+*.dwxmz.bak
