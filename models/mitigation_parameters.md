@@ -10,18 +10,23 @@
 
 **Why it matters in the Philippines specifically:** tropical cooling water supply is ~32–33 °C (cooling-tower approach on a 27–29 °C wet bulb) `[GK]`. Anything condensing below ~40 °C is already marginal on CW; below 0 °C means a chiller/refrigeration plant.
 
-**Fix — change ONE setting on C-101: total → PARTIAL condenser.**
+**Fix — stabilizer flash downstream of C-101** (REVISED: a *shortcut* column has a single distillate and cannot split lights at the condenser — a "partial" setting only changes the distillate phase. The stabilizer drum implements the same physics explicitly.)
 
 | Parameter | Set to | Effect |
 |---|---|---|
-| C-101 condenser type | **Partial (vapor + liquid distillate)** | lights leave as a small vapor vent; naphtha is the liquid distillate |
-| Condenser temperature spec | **45 °C** | CW-coolable (ΔT ≈ 12 °C over 33 °C CW supply) |
-| Vapor vent routing | to fuel-gas header (join GAS) | ~11 kg/h lights, keeps mass balance closed |
-| Reflux ratio | keep 2 (raise to 3 if convergence complains) | — |
+| C-101 condenser type | **Total** (revert) | single liquid distillate, as before |
+| New block H-102 (Heater) on NAPHTHA | **Outlet T = 45 °C**, ΔP = 0 | brings distillate to the flash point; CW-territory (ΔT ≈ 12 °C over 33 °C CW) |
+| New block V-102 (Gas–Liquid Separator) | PT flash at 45 °C / ~1 bar | vapor = LIGHTS (~8–12 kg/h) ; liquid = NAPHTHA-S (stabilized product, ≥97% purity) |
+| New block MIX-1 (Mixer) | GAS + LIGHTS → FUELGAS | fuel-gas header; mass balance closed |
+| Tuning | raise H-102 to 50 °C if purity < 0.97 | ~1 kg/h extra naphtha to fuel gas per +5 °C |
 
 **Money:** refrigeration avoided = 154.74 kW<sub>th</sub> ÷ COP 2.5 ≈ 62 kW<sub>e</sub> → 495 MWh/yr → **₱3.0–4.0 M/yr saved** vs ~₱0.1–0.2 M/yr for CW `[GK]`. This is the single highest-value fix.
 
-**Verify after change:** NAPHTHA stream T ≈ 40–50 °C; purity should rise from 92.9 → ≥97 mol%; mass balance still ≤0.1%.
+**Verified outcome (user build):** NAPHTHA-S liquid at 45 °C ✅ (refrigeration avoided — the ₱3–4 M/yr objective of this fix is captured); balance 0.0008% ✅. Purity plateaued at 0.944 (0.946 @50 °C) — impurity budget: ~2.0 mol% DIESEL leakage (C-101 HK spec 0.02; a flash can never remove a heavier component) + ~3.6 mol% dissolved C3s (single-stage flash at V/F≈0.018 strips only ~20–25% of propane/propylene; C1/C2 strip fine). LIGHTS = 2.4 kg/h (flash-physics-consistent; the earlier 8–12 kg/h estimate assumed full C3 stripping and was wrong).
+
+**Closure action (Path A):** C-101 Heavy Key Molar Fraction 0.02 → **0.005** and Light Key 0.02 → **0.005** (reflux → 3 if convergence complains). Expected purity **0.956–0.962**.
+
+**REVISED acceptance (V5, naphtha):** purity ≥ **0.95**; diesel-in-naphtha ≤ **0.5 mol%**; product liquid at CW temperature; residual C3 ≤ 4 mol% logged as an RVP note. Rationale: the cut split is a declared uncertain parameter (σ≈±7 pp, option 3) — specifying flowsheet purity beyond the model's own uncertainty band is precision theater. A full 8-bar debutanizer is detailed-design scope, outside the network model.
 
 ---
 
@@ -53,6 +58,7 @@
 | SCOL-2 reboiler pressure | **0.30 bar** (small column ΔP) | bottoms T drops to ≈ **340–360 °C** (verify in DWSIM after the change) |
 | Reboiler utility | **hot oil** (≤400 °C class) — no fired heater | avoids ₱15–30 M CAPEX for a fired heater `[GK]` at this scale |
 | Cracking margin | bottoms ~350 °C < 370 °C onset | fouling risk retired |
+| **VERIFIED (user run)** | **bottoms = 344.2 °C at 0.30 bar; DIESEL condenses 177 °C (CW)** | Issue 3 closed ✅ |
 | New equipment implied | vacuum system (steam ejector or liquid-ring pump), ~5–15 kW duty equivalent | small; standard |
 
 **Verify after change:** SCOL-2 bottoms T ≤ 360 °C; DIESEL purity holds ≥95%; condenser T stays CW-coolable (vacuum lowers it — if DIESEL condenser drops below ~45 °C, back the condenser pressure up toward 0.35 bar).

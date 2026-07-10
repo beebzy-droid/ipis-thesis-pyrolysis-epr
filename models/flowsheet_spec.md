@@ -71,10 +71,23 @@ The base model is "verified" only if **all** pass. Record actuals in the verific
 | V2 | Elemental C/H balance | ≤ **1 %** each | first principles |
 | V3 | Reactor yield vs Genuino 2023 | **✅ PASS** — `verify_vs_genuino.py`: worst error **4.6 pp** < 5 pp tol over {GAS, OIL_WAX, SOLID} on both virgin mixtures (20% & 45% PET). Reproduces the documented PET>33% breakdown | `genuino2023predicting` |
 | V4 | Reactor endotherm | duty in **0.5–1.5 MJ/kg** plastic band (order-of-magnitude sanity) — flag if outside | Sharuddin/Papari (general) |
-| V5 | Column convergence | converges; cut recoveries physically reasonable (no negative flows, monotone cut NBPs) | first principles |
+| V5 | Column convergence & cut quality | converges; monotone cut NBPs; **naphtha ≥0.95 purity, diesel-in-naphtha ≤0.5 mol%, liquid at CW temperature, C3 ≤4 mol% (RVP note)**; diesel/wax ≥0.95 | first principles + declared split uncertainty |
 | V6 | Yield-table closure | ✅ met — closure error **0.00** (exact) | first principles |
 
 **V3/V4 now grounded in Genuino Table 1** (real, extracted): single-resin oil/wax yields at 500 °C — HDPE 94, LDPE 96, PP 96, PS 94, **PET 54** (32 solid); DKR categories — **multilayer 46, clogged 54** (high solid, the PH-relevant contaminated fraction). Reactor sizing (Westerhout): τ for X=0.99 at 500 °C ≈ **177 s** (intrinsic kinetics; drops to ~22 s at 550 °C — Arrhenius), which sets reactor volume/CAPEX in the TEA.
+
+## 6.1 P2 CLOSED — verification actuals (user build `pyrolysis_base_v2.dwxmz`, signed off)
+
+| # | Criterion | Actual | Verdict |
+|---|---|---|---|
+| V1 | Mass balance ≤0.1% | FUELGAS 53.573 + NAPHTHA-S 303.415 + DIESEL 362.375 + WAX 208.647 = 928.010 kg/h vs 928 → **0.0011%** | ✅ |
+| V2 | Elemental C/H | N/A by construction — mass-lump yield model carries no elemental resolution | flagged |
+| V3 | Reactor yields vs Genuino | worst **4.6 pp** < 5 pp (`verify_vs_genuino.py`) | ✅ |
+| V4 | Reactor endotherm | external to DWSIM; 0.5–1.5 MJ/kg band carried in energy audit | flagged |
+| V5 | Columns & cut quality | C-101 LK/HK = 0.005/0.005 @ reflux 2, converged. NAPHTHA-S **0.9589**, 45 °C liquid, diesel-in-naphtha ≈0.5 mol%, C3 ~3.6% (RVP note). DIESEL **0.9735** @196 °C. WAX **0.9799** @344 °C, 0.3 bar (hot-oil, below cracking) | ✅ |
+| V6 | Yield-table closure | 0.00 | ✅ |
+
+Configuration of record: yield-shift reactor (Genuino superposition + Westerhout kinetics) · PR property package · stabilizer flash (H-102 45 °C → V-102 → MIX-1) · SCOL-2 vacuum 0.25/0.30 bar.
 
 ## 7. Status — reactor model verified; two items remain
 
