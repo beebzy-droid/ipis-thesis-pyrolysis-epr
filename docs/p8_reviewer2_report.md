@@ -15,7 +15,7 @@
 
 **M5 — Chance-constraint statistical validity at S = 100.** ~~"90% guarantee" overstated.~~ **Resolved this pass:** Clopper–Pearson 95% lower bound 0.836 computed and stated in §2.7 and §3.3; guarantee phrased as sample-based with the bound attached.
 
-**M6 — Gas-credit creditability is a legal assumption driving the headline.** ~~Stated as fact.~~ **Resolved this pass:** policy paragraph rewritten conditionally (if creditable → module decisive; if not → obligation near-infeasible). Both branches are findings. Author-side action remains: read DAO 2023-02's diversion definitions directly.
+**M6 — Gas-credit creditability is a legal assumption driving the headline.** ~~Stated as fact.~~ **FULLY RESOLVED (Draft 4, primary source):** DAO 2023-02 full text read. Waste-to-fuel and waste-to-energy are NAMED creditable dispositions (Secs. 16.3.3.4, 12.2.2.2.7); incineration-exclusion nuance handled (Sec. 6.59). Conditional replaced by grounded claim + pending-standards caveat. Bonus finds integrated: Rigid/Flexible segregated crediting (16.3.3.3) and third-offense permit suspension (21.1), which completes the F2 argument. See docs/dao_2023-02_legal_read.md.
 
 **M7 — LCA is thin relative to its visibility.** Streamlined gate-to-gate with a displacement credit that flips the sign. **Resolved by scope check:** the LCA never entered the manuscript; it lives in the thesis TEA chapter (`p6_tea.md`) with both signs reported. No paper action required.
 
