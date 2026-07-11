@@ -41,6 +41,9 @@ CUT_SPLIT = {"NAPHTHA": 0.356, "MIDDLE": 0.406, "WAX": 0.238}       # central; s
 
 # N2: flash-loss coefficient  loss = K_FLASH * gas_kg * w_naphtha_in_oil
 K_FLASH = BASE["flash_naphtha_loss"] / (BASE["gas"] * BASE["naphtha_in_oil_frac"])   # = 0.684
+# --- P5 DWSIM 6-point recalibration (verify_vs_dwsim.py, 24 cells, post-fit <=1.6%) ---
+LOSS_SCALE = 0.762   # flash+stab losses were calibrated pre-Path-A (0.02 keys); 24% high
+WAX_LEAK   = 0.0534  # SCOL-2 HK spec 0.02 molar -> 5.3 mass% wax rides into DIESEL
 
 # N3: per-category pyrolysis-oil densities [GK] (kg/L); aromatic-rich denser
 OIL_RHO = {"PE_rigid": 0.78, "PE_film": 0.78, "PP_rigid": 0.77, "PP_film": 0.77,
@@ -68,11 +71,12 @@ def evaluate(comp: dict[str, float], tau_s: float = 240.0,
     unc = basis_kg * (1 - X)
 
     naph_in_oil = oil * split["NAPHTHA"]
-    flash_loss = min(K_FLASH * gas * split["NAPHTHA"], 0.5*naph_in_oil)     # N2
-    stab_loss  = BASE["stab_lights_loss"]/ (BASE["oil"]*BASE["naphtha_in_oil_frac"]) * naph_in_oil
+    flash_loss = LOSS_SCALE * min(K_FLASH * gas * split["NAPHTHA"], 0.5*naph_in_oil)   # N2, recal
+    stab_loss  = LOSS_SCALE * BASE["stab_lights_loss"]/(BASE["oil"]*BASE["naphtha_in_oil_frac"]) * naph_in_oil
     naphtha_s  = naph_in_oil - flash_loss - stab_loss
-    diesel     = oil * split["MIDDLE"]
-    wax        = oil * split["WAX"]
+    wax0       = oil * split["WAX"]
+    wax        = wax0 * (1 - WAX_LEAK)                                     # SCOL-2 HK leakage
+    diesel     = oil * split["MIDDLE"] + wax0 * WAX_LEAK
     fuelgas    = gas + flash_loss + stab_loss
 
     # N3: composition-weighted oil density -> liquid volume
