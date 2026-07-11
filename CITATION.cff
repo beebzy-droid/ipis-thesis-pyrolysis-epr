@@ -1,12 +1,10 @@
 cff-version: 1.2.0
-message: "If you use this work, please cite it using these metadata."
-title: "Uncertainty-Aware Surrogate Optimization of Decentralized Mixed-Plastic Pyrolysis Networks for EPR-Compliant Liquid Fuel Recovery in the Philippines"
+message: "If you use this repository, please cite it."
+title: "ipis-thesis-pyrolysis-epr"
 authors:
-  - family-names: "Busico"
-    given-names: "Bien"
-type: software
-repository-code: "https://github.com/beebzy-droid/ipis-thesis-pyrolysis-epr"
+  - family-names: Busico
+    given-names: Bien
+version: 1.0.0
+date-released: 2026-07-12
 license: MIT
-version: "0.1.0"
-date-released: "2026-07-05"
-# doi: 10.5281/zenodo.XXXXXXX   # minted at pre-submission release (P9)
+repository-code: "https://github.com/beebzy-droid/ipis-thesis-pyrolysis-epr"
