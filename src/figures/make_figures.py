@@ -26,16 +26,16 @@ SC, DC = 3.54, 7.48   # column widths, inches
 
 # ---------- F1: superstructure schematic + flowsheet inset ----------
 def F1():
-    fig, ax = plt.subplots(figsize=(DC, 3.4)); ax.axis("off")
+    fig, ax = plt.subplots(figsize=(DC, 4.0)); ax.axis("off")
     lgus = [("QC",.06,.82),("Manila",.05,.62),("Caloocan",.07,.42),("Taguig",.05,.22),
             ("Pasig",.16,.90),("Valenzuela",.16,.10),("Paranaque",.24,.86),("Makati",.24,.14)]
     sites = [("Valenzuela_N",.46,.78),("Navotas_Port",.46,.55),("Taguig_FTI",.46,.32),("Carmona_Central",.46,.09)]
     for n,x,y in lgus:
-        ax.add_patch(Circle((x,y),.016,fc=OI[5],ec="k",lw=.5)); ax.text(x,y+.045,n,ha="center",fontsize=6.5)
-        for _,sx,sy in sites: ax.plot([x+.016,sx-.03],[y,sy],color="0.8",lw=.4,zorder=0)
+        ax.add_patch(Circle((x,y),.016,fc=OI[5],ec="k",lw=.5)); ax.text(x-.024,y,n,ha="right",va="center",fontsize=6.5)
+        for _,sx,sy in sites: ax.plot([x+.016,sx-.03],[y,sy],color="0.88",lw=.35,zorder=0)
     for n,x,y in sites:
         ax.add_patch(Rectangle((x-.03,y-.035),.06,.07,fc=OI[1],ec="k",lw=.6))
-        ax.text(x,y-.075,n.replace("_","\n"),ha="center",fontsize=6.5)
+        ax.text(x,y-.085,n.replace("_","\n"),ha="center",fontsize=6.2)
     for lbl,x,y,c in [("NAPHTHA",.94,.75,OI[0]),("DIESEL",.94,.55,OI[2]),("WAX",.94,.35,OI[3]),("FUELGAS",.94,.15,OI[4])]:
         ax.add_patch(Circle((x,y),.014,fc=c,ec="k",lw=.5)); ax.text(x-.03,y,lbl,ha="right",fontsize=6.5,va="center")
         for _,sx,sy in sites: ax.plot([sx+.03,x-.014],[sy,y],color="0.85",lw=.4,zorder=0)
@@ -47,7 +47,7 @@ def F1():
         ax.add_patch(Rectangle((.585,y-.07),.10,.14,fc="white",ec="k",lw=.6))
         ax.text(.635,y,t,ha="center",va="center",fontsize=5.6)
         if i<4: ax.annotate("",xy=(.635,y-.083),xytext=(.635,y-.115),arrowprops=dict(arrowstyle="->",lw=.6))
-    ax.text(.71,.5,"stage 1: sites z, gas modules g,\ncontracts c\nstage 2: flows x per scenario\nRA 11898: recover >= 80% of\ncontracted footprint",fontsize=6.4,va="center")
+    ax.text(.715,.47,"stage 1: sites z, gas\nmodules g, contracts c\n\nstage 2: flows x\nper scenario\n\nRA 11898: recover\n>= 80% of contracted\nfootprint",fontsize=6.2,va="center")
     ax.text(.02,.985,"(a) spatial superstructure",fontsize=8,weight="bold",va="top")
     ax.text(.57,.985,"(b) site flowsheet (verified, v3)",fontsize=8,weight="bold",va="top")
     ax.set_xlim(0,1); ax.set_ylim(0,1); save(fig,"F1_superstructure")
@@ -61,7 +61,9 @@ def F2():
     fig, ax = plt.subplots(figsize=(SC,2.6))
     for r,lab,c in [(r1,"reactor lump (superposition)",OI[0]),(r2,"full flowsheet (v3 oracle)",OI[3])]:
         ax.hist(r*100, bins=28, alpha=.55, label=f"{lab}\nP(>=80%)={ (r>=.8).mean()*100:.0f}%", color=c, edgecolor="none")
-    ax.axvline(80, color="k", lw=1, ls="--"); ax.text(80.4, ax.get_ylim()[1]*.95, "RA 11898\n80% (2028)", fontsize=6.5, va="top")
+    ax.axvline(80, color="k", lw=1, ls="--")
+    ax.set_ylim(0, ax.get_ylim()[1]*1.22)
+    ax.text(80.6, ax.get_ylim()[1]*.62, "RA 11898\n80% (2028)", fontsize=6.5, va="top")
     ax.set_xlabel("liquid recovery of contracted footprint (wt %)"); ax.set_ylabel("count (200 compositions)")
     ax.legend(fontsize=6.2, frameon=False, loc="upper left"); save(fig,"F2_recovery_vs_target")
 
@@ -124,10 +126,12 @@ def F5():
             ax.scatter(j+np.random.default_rng(int(r.rep)).uniform(-.14,.14), r.assure_cost/1e6,
                        s=16, color=cols[r.mech], zorder=3, edgecolor="k", lw=.3)
     ax.set_yscale("log"); ax.set_xticks([0,1]); ax.set_xticklabels(["mild\n(c$_{LGU}$=60)","strong\n(c$_{LGU}$=15)"])
-    ax.set_ylabel("cost of 90% compliance assurance (MPHP yr$^{-1}$, log)")
+    ax.set_ylabel("cost of 90% assurance (MPHP yr$^{-1}$)")
     for m,c in cols.items(): ax.scatter([],[],color=c,edgecolor="k",lw=.3,s=16,label=m)
     ax.legend(fontsize=6.2,frameon=False,loc="upper left",title="assurance mechanism",title_fontsize=6.2)
-    ax.text(0,2.2,"18.3$\\pm$9.9",fontsize=6.5,ha="center"); ax.text(1,3000,"median 413",fontsize=6.5,ha="center")
+    ax.text(0,62,"mean 18.3$\\pm$9.9",fontsize=6.5,ha="center")
+    ax.text(1.02,4600,"median 413",fontsize=6.5,ha="center")
+    ax.set_ylim(2.5, 9000)
     save(fig,"F5_cost_of_assurance")
 
 # ---------- F6: Sobol tornado ----------
@@ -142,7 +146,7 @@ def F6():
     ax.barh(yp-.18, S.ST, height=.34, color=OI[1], label="total $S_T$")
     ax.set_yticks(yp); ax.set_yticklabels([names[n] for n in S.factor], fontsize=7)
     ax.set_xlabel("Sobol index (NPV)"); ax.legend(fontsize=6.5,frameon=False,loc="lower right")
-    ax.text(.62,len(S)-1.15,"62%",fontsize=7,weight="bold")
+    ax.text(.645,len(S)-1-.18,"62%",fontsize=7,weight="bold",va="center")
     save(fig,"F6_sobol_npv")
 
 if __name__=="__main__":
