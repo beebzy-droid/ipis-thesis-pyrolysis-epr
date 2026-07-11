@@ -43,7 +43,7 @@ CUT_SPLIT = {"NAPHTHA": 0.356, "MIDDLE": 0.406, "WAX": 0.238}       # central; s
 K_FLASH = BASE["flash_naphtha_loss"] / (BASE["gas"] * BASE["naphtha_in_oil_frac"])   # = 0.684
 # --- P5 DWSIM 6-point recalibration (verify_vs_dwsim.py, 24 cells, post-fit <=1.6%) ---
 LOSS_SCALE = 0.762   # flash+stab losses were calibrated pre-Path-A (0.02 keys); 24% high
-WAX_LEAK   = 0.0534  # SCOL-2 HK spec 0.02 molar -> 5.3 mass% wax rides into DIESEL
+WAX_LEAK   = 0.0134  # v3 plant-of-record: SCOL-2 keys tightened 0.02->0.005 (user, verified from run: wax purity 0.9948, flow 217.2); scaled 0.0534*(0.005/0.02)
 
 # N3: per-category pyrolysis-oil densities [GK] (kg/L); aromatic-rich denser
 OIL_RHO = {"PE_rigid": 0.78, "PE_film": 0.78, "PP_rigid": 0.77, "PP_film": 0.77,
