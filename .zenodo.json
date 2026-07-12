@@ -1,0 +1,9 @@
+{
+  "title": "ipis-thesis-pyrolysis-epr: Chance-constrained design of decentralized plastic-pyrolysis networks under feedstock-composition uncertainty",
+  "description": "Reproducibility archive: validated pyrolysis yield and flowsheet models, feedstock-composition uncertainty set, GP surrogate training, two-stage stochastic and chance-constrained superstructure optimization, SAA replication study, TEA with Sobol analysis, and single-script regeneration of all manuscript figures. Companion to the manuscript submitted to Computers & Chemical Engineering.",
+  "creators": [{"name": "Busico, Bien"}],
+  "keywords": ["stochastic programming", "chance constraints", "surrogate modeling", "plastic pyrolysis", "extended producer responsibility", "Philippines"],
+  "upload_type": "software",
+  "license": "MIT",
+  "related_identifiers": [{"relation": "isSupplementTo", "identifier": "MANUSCRIPT-DOI-AFTER-ACCEPTANCE", "resource_type": "publication-article"}]
+}
