@@ -1,10 +1,18 @@
 cff-version: 1.2.0
-message: "If you use this repository, please cite it."
-title: "ipis-thesis-pyrolysis-epr"
+message: "If you use this software, please cite it using these metadata."
+title: "ipis-thesis-pyrolysis-epr: chance-constrained design of decentralized plastic-pyrolysis networks under feedstock-composition uncertainty"
+abstract: "Reproducibility archive: validated pyrolysis yield and flowsheet models, feedstock-composition uncertainty set, Gaussian-process surrogate, two-stage stochastic and chance-constrained superstructure optimization, SAA replication study, techno-economic analysis with Sobol sensitivity, and single-script regeneration of all manuscript figures."
 authors:
   - family-names: Busico
     given-names: Bien
 version: 1.0.0
 date-released: 2026-07-12
+doi: 10.5281/zenodo.21317617
 license: MIT
 repository-code: "https://github.com/beebzy-droid/ipis-thesis-pyrolysis-epr"
+keywords:
+  - stochastic programming
+  - chance constraints
+  - surrogate modeling
+  - plastic pyrolysis
+  - extended producer responsibility

@@ -137,7 +137,7 @@ For a Metro Manila mixed-plastic pyrolysis network under the RA 11898 recovery o
 
 # Data availability
 
-All results in this paper regenerate from a single repository: the process model, its verification harnesses, the uncertainty set, the surrogate training, every optimization study, and all six figures, each produced by one script from raw inputs. The repository will be archived with a DOI at submission.
+All results in this paper regenerate from a single repository: the process model, its verification harnesses, the uncertainty set, the surrogate training, every optimization study, and all six figures, each produced by one script from raw inputs. The repository is archived at Zenodo under DOI 10.5281/zenodo.21317617 (version v1.0.0, MIT licence) and mirrored at https://github.com/beebzy-droid/ipis-thesis-pyrolysis-epr.
 
 # References
 
