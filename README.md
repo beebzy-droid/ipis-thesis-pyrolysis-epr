@@ -1,6 +1,6 @@
 # ipis-thesis-pyrolysis-epr
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21317617.svg)](https://doi.org/10.5281/zenodo.21317617)
+[![DOI](https://zenodo.org/badge/1289682085.svg)](https://doi.org/10.5281/zenodo.21317616)
 
 Uncertainty-aware surrogate optimization of decentralized mixed-plastic
 pyrolysis networks for EPR-compliant liquid-fuel recovery in the Philippines (W1/A).
