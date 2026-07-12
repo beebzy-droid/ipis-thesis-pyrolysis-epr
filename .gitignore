@@ -21,7 +21,6 @@ venv/
 /results/**/*.pt
 
 # Simulation exports
-*.dwxmz
 *.bkp
 *.apw
 
