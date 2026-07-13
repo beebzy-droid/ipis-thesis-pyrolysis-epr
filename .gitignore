@@ -37,3 +37,6 @@ src/yield_table*.csv
 # DWSIM autosave/backup
 *.dwxmz.bak
 # env
+
+results/surrogates/
+!results/figures/*.png
